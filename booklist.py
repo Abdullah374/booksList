@@ -16,12 +16,14 @@ def main():
 
 
     choice = 0
-    while choice != 4:
+    while choice != 6:
         print("*** Books Manager ***")
         print("1) Add a book")
         print("2) Lookup a book")
         print("3) Display book")
-        print("4) Quit")
+        print("4) Delete a book")
+        print("5) Update Book Details")
+        print("6) Exit")
         choice = int(input())
 
         if choice == 1:
@@ -43,7 +45,39 @@ def main():
                 print(book)
 
         elif choice == 4:
-            print("quitting program...")
+            print("Deleting book...")
+            keyWord = input("Enter book to delete: ")
+            found = False
+            for book in booksList:
+                if keyWord in book:
+                    found = True
+                    booksList.remove((book))
+                    break
+            if not found:
+                print("Book doesn't exist")
+        elif choice == 5:
+            print("Updating book details...")
+            keyWord = input("Enter book to be updated: ")
+            found = False
+
+            for book in booksList:
+                if keyWord in book:
+                    found = True
+                    detail = input("Enter details to be updated(Name, Author, Pages): ").lower()
+                    if detail == 'name':
+                        new = input("Enter new name")
+                        book[0] = str(new)
+                        break
+                    elif detail == 'author':
+                        new = input("Enter new author")
+                        book[1] = str(new)
+                        break
+                    elif detail == 'pages':
+                        new = input("Enter no of pages")
+                        book[2] = str(new)
+                        break
+                if not found:
+                    print("Book doesnt exist")
     print("Program terminated")
 
     outfile = open("theBooksList.txt", "w")
