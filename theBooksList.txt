@@ -1,0 +1,3 @@
+Doctor Strange,Stephen king,500
+harry potter,rl stein,300
+life of pie,yann martel,200
