@@ -1,2 +1,2 @@
 # booksList
-bookstore api basic
+bookstore CLI basic
